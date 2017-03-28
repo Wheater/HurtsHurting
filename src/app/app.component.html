@@ -1,0 +1,29 @@
+<md-toolbar color="primary" class="home-toolbar">
+  <span> 
+    Hurts Hurting&nbsp;
+    <a md-button routerLink="/wod" class="home-toolbar-menu-item">WOD</a>
+    <a md-button routerLink="/about" class="home-toolbar-menu-item">About</a>
+    <a md-button routerLink="/wod-management" class="home-toolbar-menu-item">WOD Management</a>
+    <input [(ngModel)]="searchText" (keyup.enter)="onEnterKey()" placeholder="Search" class="wod-search-input">
+    <a routerLink="/wod/{{searchText}}" class="wod-search-icon"><i class="material-icons wod-search-icon">search</i></a>
+    <button md-icon-button [mdMenuTriggerFor]="menu" id="mobileMenuButton">
+      <md-icon>more_vert</md-icon>
+    </button>
+    <md-menu #menu="mdMenu" [overlapTrigger]="false">
+      <md-list class="mobile-menu-list">
+        <md-list-item class="mobile-menu-list-item">
+          <a md-button class="mobile-menu-button" routerLink="/wod" color="primary">WOD</a>
+        </md-list-item>
+        <md-list-item class="mobile-menu-list-item">
+          <a md-button class="mobile-menu-button" routerLink="/about" color="primary">About</a>
+        </md-list-item>
+        <md-list-item>
+          <a md-button class="mobile-menu-button"  routerLink="/wod-management" color="primary">WOD Management</a>        
+        </md-list-item>
+      </md-list>
+    </md-menu>
+  </span>
+</md-toolbar>
+<div class="router-outlet-container">
+  <router-outlet></router-outlet>
+</div>

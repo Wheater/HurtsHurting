@@ -1,0 +1,70 @@
+@import '~@angular/material/core/theming/all-theme';
+
+// Include the base styles for Angular Material core. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+@include mat-core();
+
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue.
+$blog-primary: mat-palette($mat-teal, 900);
+$blog-accent: mat-palette($mat-blue-grey, 600);
+$blog-primary-color: rgb(0, 77, 64);
+$blog-primary-text-color: rgba(255, 255, 255, 0.87);
+$blog-secondary-color: #546e7a;
+$blog-secondary-text-color: white;
+
+// The warn palette is optional (defaults to red).
+//$candy-app-warn:    mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$blog-theme: mat-light-theme($blog-primary, $blog-accent);
+
+$md-card-padding-horizontal: 24px;
+$md-card-padding-vertical: 12px;
+
+md-card {
+    padding: 0 0 $md-card-padding-vertical 0 !important;
+    margin: 10px 0 10px 0;
+    width: 400px;
+}
+
+md-card-content {
+    padding: $md-card-padding-vertical $md-card-padding-horizontal;
+}
+
+md-grid-list {
+    margin-bottom: 50px;
+}
+
+md-card-subtitle {
+    padding: $md-card-padding-vertical $md-card-padding-horizontal 0 $md-card-padding-horizontal; 
+    font-weight: bold;
+}
+
+md-card-title {
+    background-color: mat-color($blog-accent);
+    color: white;
+    padding:  $md-card-padding-vertical $md-card-padding-horizontal;
+}
+
+app-root {
+    width: 100%;
+}
+
+.mat-menu-item[color="secondary"],  {
+    color: $blog-secondary-text-color;
+    background-color: $blog-secondary-color;
+}
+
+.mobile-menu-button{
+    width: 100%;
+    padding-left: 10px;
+    text-align: left;
+}
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($blog-theme);

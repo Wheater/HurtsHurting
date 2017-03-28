@@ -1,0 +1,52 @@
+img {
+    background-size: cover;
+    width: 100%;
+}
+
+md-card {
+    width: auto;
+}
+
+md-card-content {
+    display: flex;
+    align-items: center;
+}
+
+.about-image {
+    text-align: center;
+    height: 250px;
+    width: 100%;
+    background-position-y: center;
+    background-position-x: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.stats-warning-container {
+    padding: 30px;
+}
+
+.wod-card-content-container {
+    width: 45%;
+    display: inline-block;
+}
+
+:host /deep/ .c-heading-data-sub {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+:host /deep/ .stats-container {
+    padding: 5px 5px 5px 30px;
+}
+
+:host /deep/ .stats-container > li {
+    display: block;
+}
+
+:host /deep/ .stats-container th {
+    width: 200px;
+    padding: 5px 0 5px 0;
+}

@@ -1,0 +1,26 @@
+<md-toolbar color="accent" class="wod-management-toolbar">
+  <span> 
+    WOD Entry
+  </span>
+</md-toolbar>
+<form [formGroup]="wodForm" class="wod-input-form">
+    <md-input-container>
+        <input mdInput placeholder="Date" [value]="placeholderDate | date:'yyyy-MM-dd'" type="date" formControlName="date">
+    </md-input-container>
+    <br/>
+    <md-select placeholder="User" formControlName="user">
+        <md-option *ngFor="let user of users" [value]="user">
+            {{user.name}}
+        </md-option>
+    </md-select>
+    <br/>    
+    <md-input-container>
+        <textarea mdInput placeholder="Description" formControlName="description"></textarea>
+    </md-input-container>
+    <br/>
+    <md-input-container>
+        <textarea mdInput placeholder="Results" formControlName="results"></textarea>
+    </md-input-container>
+    <br/>
+    <button md-raised-button color="primary" type="submit" (click)="insertWod()" [disabled]="!wodForm.valid">Submit</button>
+</form>

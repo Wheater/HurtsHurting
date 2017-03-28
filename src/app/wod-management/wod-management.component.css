@@ -1,0 +1,37 @@
+form {
+    text-align: center;
+    vertical-align: middle;
+}
+
+textarea {
+    width: 350px;
+    height: 100x;
+}
+
+md-input-container, md-select, button {
+    margin: 20px;
+}
+
+md-toolbar {
+    align-items: center;
+}
+
+:host /deep/ .mat-input-placeholder-wrapper {
+    left: 10px;
+}
+
+.wod-input-form {
+    margin-top: 40px;
+}
+
+.mat-select.ng-valid, .mat-select.ng-valid
+.mat-input-element.ng-valid, .mat-input-element.ng-valid  {
+  border-left: 5px solid #42A948; /* green */
+  padding-left: 5px;
+}
+
+.mat-input-element.ng-invalid:not(form),
+.mat-select.ng-invalid:not(form)  {
+  border-left: 5px solid #a94442; /* red */
+  padding-left: 5px;
+}

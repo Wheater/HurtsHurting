@@ -1,0 +1,31 @@
+<div *ngIf="wods && wods.length == 0">
+    <md-card class="wod-card">
+         <md-card-title color="accent">&nbsp;Woops!</md-card-title>
+         <md-card-subtitle>We're sorry...</md-card-subtitle>
+        <md-card-content>There is no WOD data available at the moment</md-card-content>
+    </md-card>
+</div>
+<div *ngIf="wods && wods != '[]'">
+    <md-card class="wod-card" *ngFor="let wod of wods">
+        <div *ngIf="wod && (wod.title || wod.date)">
+            <md-card-title color="accent">&nbsp;{{wod.date | date: 'yMMMMd'}}</md-card-title>
+            <md-card-subtitle>Workout of the Day</md-card-subtitle>
+            <md-card-content [innerHTML]="wod.description"></md-card-content>
+            <hr/>
+            <div class="wod-results">
+                <md-card-subtitle>Results</md-card-subtitle>
+                <md-card-content [innerHTML]="wod.results"></md-card-content>
+            </div>
+            <div class="img-headshot" [style.background-image]="getSanitizedUrl(wod.user)"></div>
+        </div>    
+        <div *ngIf="wod && !(wod.title || wod.date)">
+            <md-card-title>
+                No WOD data can be found at this time.
+            </md-card-title>
+        </div>
+    </md-card>
+</div>
+<div *ngIf="!wods" class="wod-spinner">
+    <md-spinner color="accent"></md-spinner>
+</div>
+
