@@ -3,13 +3,21 @@ img {
     width: 100%;
 }
 
-md-card {
-    width: auto;
+.flex-container {
+    display: flex;
+    align-items: stretch;
+    flex-flow: row wrap;
+    justify-content: space-around;
 }
 
-md-card-content {
-    display: flex;
-    align-items: center;
+md-card {
+    width: auto;
+    display: inline-block;
+    margin: 50px;
+}
+
+.flex-item {
+    flex-grow: 1;
 }
 
 .about-image {
@@ -28,9 +36,8 @@ md-card-content {
     padding: 30px;
 }
 
-.wod-card-content-container {
-    width: 45%;
-    display: inline-block;
+.about-container {
+    flex-grow: 1;
 }
 
 :host /deep/ .c-heading-data-sub {

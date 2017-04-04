@@ -89,3 +89,11 @@ a .wod-search-icon {
     padding-left: 10px;
     overflow: hidden;
 }
+
+:host /deep/ .mat-list,
+:host /deep/ .mat-list-item-content,
+:host /deep/ .mat-list .mat-list-item .mat-list-item-content,
+:host /deep/ .mat-list .mat-list-item .mat-list-text,
+:host /deep/ .mat-menu-content {
+    padding: 0px;
+}

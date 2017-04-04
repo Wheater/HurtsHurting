@@ -16,13 +16,17 @@ import { AboutComponent } from './about/about.component';
 import { WodScraperService } from './services/wod-scraper.service';
 import { WodManagementComponent } from './wod-management/wod-management.component';
 import { UserService } from './services/user.service';
+import { MediaUploadDialogComponent } from './wod/media-upload-dialog.component';
+import { DroppableDirective } from './drag-and-drop/droppable.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     WodComponent,
     AboutComponent,
-    WodManagementComponent
+    WodManagementComponent,
+    MediaUploadDialogComponent,
+    DroppableDirective
   ],
   imports: [
     BrowserModule,
@@ -37,6 +41,9 @@ import { UserService } from './services/user.service';
     WodScraperService,
     UserService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    MediaUploadDialogComponent
+  ]
 })
 export class AppModule { }

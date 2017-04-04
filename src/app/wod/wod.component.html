@@ -1,22 +1,38 @@
-<div *ngIf="wods && wods.length == 0">
-    <md-card class="wod-card">
+<div *ngIf="wods && wods.length == 0" class="flex-container wod-flex-item">
+    <md-card class="flex-item">
          <md-card-title color="accent">&nbsp;Woops!</md-card-title>
          <md-card-subtitle>We're sorry...</md-card-subtitle>
         <md-card-content>There is no WOD data available at the moment</md-card-content>
     </md-card>
 </div>
-<div *ngIf="wods && wods != '[]'">
-    <md-card class="wod-card" *ngFor="let wod of wods">
-        <div *ngIf="wod && (wod.title || wod.date)">
-            <md-card-title color="accent">&nbsp;{{wod.date | date: 'yMMMMd'}}</md-card-title>
-            <md-card-subtitle>Workout of the Day</md-card-subtitle>
-            <md-card-content [innerHTML]="wod.description"></md-card-content>
-            <hr/>
-            <div class="wod-results">
-                <md-card-subtitle>Results</md-card-subtitle>
-                <md-card-content [innerHTML]="wod.results"></md-card-content>
+<div *ngIf="wods && wods != '[]'" class="flex-container">
+    <md-card class="flex-item wod-flex-item" *ngFor="let wod of wods">
+        <div *ngIf="wod && (wod.title || wod.date)" class="vertical-flex-container">
+            <div class="flex-item">
+                <md-card-title color="accent">&nbsp;{{wod.date | date: 'yMMMMd'}}</md-card-title>
+                <md-card-subtitle>Workout of the Day</md-card-subtitle>
+                <md-card-content [innerHTML]="wod.description"></md-card-content>
             </div>
-            <div class="img-headshot" [style.background-image]="getSanitizedUrl(wod.user)"></div>
+            <div class="flex-item">
+                <hr/>
+                <md-card-subtitle>Results</md-card-subtitle>
+                <div class="wod-results-container flex-container">
+                    <div class="wod-results flex-item">                        
+                        <md-card-content [innerHTML]="wod.results"></md-card-content>
+                    </div>
+                    <div class="flex-item">
+                        <div class="img-headshot" [style.background-image]="getSanitizedUrl(wod.user)"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-item">
+                <hr/>
+                <md-card-subtitle>Media</md-card-subtitle>
+                <div hurtDroppable class="wod-media-upload-container" (click)="openMediaUploadDialog()">
+                    <tr><i class="material-icons wod-media-upload-icon" style="margin: auto;">cloud_upload</i></tr>
+                    <tr><div class="wod-media-upload-icon">Drop media here</div></tr>                    
+                </div>
+            </div>
         </div>    
         <div *ngIf="wod && !(wod.title || wod.date)">
             <md-card-title>

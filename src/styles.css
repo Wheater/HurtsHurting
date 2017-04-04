@@ -1,7 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
 body, html {
-    height:100%;
-    display: block;
     font-family: Roboto,"Helvetica Neue",sans-serif !important;
 }
 
@@ -12,4 +10,40 @@ body, html {
     bottom: 0;
     left: 0;
     right: 0;
+}
+
+.droppable-hover {
+    background-color: #fffbf0;
+}
+
+.flex-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+.position-bottom {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+
+.position-bottom-parent {
+    position: relative;
+}
+
+.vertical-flex-container {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-around;
+}
+
+md-card {
+    width: auto;
+    display: inline-block;
+    margin: 50px;
+}
+
+.flex-item {
+    display: inline-block;
 }

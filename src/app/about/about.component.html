@@ -1,27 +1,19 @@
-<md-grid-list cols="1" rowHeight="600px;">
-    <div *ngFor="let user of users">
-        <md-grid-tile>
-            <md-card class="wod-card">
-                <md-card-title>{{ user.name }}</md-card-title>
-                <div class="wod-card-content-container">
-                    <md-card-subtitle>{{ user.tagLine }}</md-card-subtitle>
-                </div>
-                <div class="wod-card-content-container">
-                    <md-card-subtitle>Benchmark Stats</md-card-subtitle>
-                </div>
-                <md-card-content>
-                    <div class="wod-card-content-container">
-                    <div class="about-image" [style.background-image]="getSanitizedUrl(user)"></div>
-                    <br/>
-                    <br/>
-                    <p>{{ user.description }}</p>                                    
-                    </div>
-                    <div class="wod-card-content-container">                        
-                        <div [innerHtml]="getSanitizedHtml(user)" *ngIf="user.gamesProfile"></div>   
-                        <div *ngIf="!user.gamesProfile" class="stats-warning-container">Don't forget to link your games profile to your account!</div>   
-                    </div>
-                </md-card-content>
-            </md-card>
-        </md-grid-tile>
-    </div>
-</md-grid-list>
+<div class="flex-container">
+    <md-card class="wod-card" *ngFor="let user of users">
+        <md-card-title>{{ user.name }}</md-card-title>
+        <md-card-content class="flex-container">
+            <div class="flex-item">
+                <md-card-subtitle>{{ user.tagLine }}</md-card-subtitle>
+                <div class="about-image" [style.background-image]="getSanitizedUrl(user)"></div>
+                <br/>
+                <br/>
+                <p>{{ user.description }}</p>                                    
+            </div>
+            <div class="flex-item">  
+                <md-card-subtitle>Benchmark Stats</md-card-subtitle>                     
+                <div [innerHtml]="getSanitizedHtml(user)" *ngIf="user.gamesProfile"></div>   
+                <div *ngIf="!user.gamesProfile" class="stats-warning-container">Don't forget to link your games profile to your account!</div>   
+            </div>
+        </md-card-content>
+    </md-card>
+</div>
