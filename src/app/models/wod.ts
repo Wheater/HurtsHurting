@@ -7,6 +7,7 @@ export class Wod {
         this.results = results;
         this.user = user;
         this.date = date;
+        this.fileList = [];
     }
 
     title: string;
@@ -14,6 +15,7 @@ export class Wod {
     description: string;
     results: string;
     user: User;
+    fileList: any[];
 }
 
 export class InMemoryWodShell {

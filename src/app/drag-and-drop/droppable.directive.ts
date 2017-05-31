@@ -1,7 +1,7 @@
 import { Directive, Output, ElementRef, EventEmitter, OnInit, HostListener } from '@angular/core';
 
 @Directive({ 
-    selector: '[hurtDroppable]',
+    selector: '[hurtDroppable]'
 })
 
 export class DroppableDirective implements OnInit {
@@ -10,9 +10,15 @@ export class DroppableDirective implements OnInit {
 
     constructor(private elementRef: ElementRef) { }
 
-    @HostListener('dragenter', ['$event'])
-    onDragEnter(event): void {
+    //this is much better than dragenter solution since
+    //dragleave fires on other elements
+    @HostListener('dragover', ['$event'])
+    onDragOver(event): void {
         this.elementRef.nativeElement.classList.add('droppable-hover');
+
+        //drop event doesn't trigger without this for some reason
+        event.preventDefault();
+        event.stopPropagation();
     }
 
     @HostListener('dragleave', ['$event'])
@@ -22,9 +28,19 @@ export class DroppableDirective implements OnInit {
 
     @HostListener('drop', ['$event'])
     onDrop(event) {
-        const data =  JSON.parse(event.dataTransfer.getData('Text'));
 
-        this.drop.next(data);
+        event.preventDefault();
+        event.stopPropagation();
+
+        console.log('drop event');
+
+        let files = event.dataTransfer.files;
+
+        if(files.length > 0){
+            this.drop.emit(files);
+        }
+
+        this.elementRef.nativeElement.classList.remove('droppable-hover');
     }
 
     ngOnInit() {

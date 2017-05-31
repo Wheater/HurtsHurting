@@ -50,7 +50,7 @@ md-card {
 }
 
 .wod-media-upload-container:hover {
-    background-color: #fffbf0;
+    background-color: rgba(21, 150, 7, .2);
     cursor: pointer;
 }
 

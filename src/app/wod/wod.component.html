@@ -28,7 +28,15 @@
             <div class="flex-item">
                 <hr/>
                 <md-card-subtitle>Media</md-card-subtitle>
-                <div hurtDroppable class="wod-media-upload-container" (click)="openMediaUploadDialog()">
+                <div class="file-list-zone" *ngIf="wod && wod.fileList && wod.fileList.length > 0">
+                    <ul>
+                        <li *ngFor="let file of wod.fileList">
+                            {{ file.name }}
+                            <img [src]="getObjectUrl(file)" />
+                        </li>
+                    </ul>    
+                </div>
+                <div hurtDroppable (drop)="onFilesDropped($event.dataTransfer.files, wod)" class="wod-media-upload-container" (click)="openMediaUploadDialog()">
                     <tr><i class="material-icons wod-media-upload-icon" style="margin: auto;">cloud_upload</i></tr>
                     <tr><div class="wod-media-upload-icon">Drop media here</div></tr>                    
                 </div>
