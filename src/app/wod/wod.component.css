@@ -38,7 +38,7 @@ md-card {
 }
 
 .wod-flex-item {
-    width: 400px;
+    width: 500px;
 }
 
 .wod-media-upload-container {
@@ -54,9 +54,28 @@ md-card {
     cursor: pointer;
 }
 
+.wod-media-contents-list {
+    padding: 10px 0;
+}
+
 .wod-media-upload-icon {
     display: table-cell;
     vertical-align: middle;
     text-align: center;
     z-index: 2;
+}
+
+:host /deep/ .wod-media-contents-list-item.mat-list-item .mat-list-item-content {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+:host /deep/ .wod-media-contents-list-item.mat-list-item img {
+    width: 200px;
+}
+
+:host /deep/ .wod-media-contents-list-item.mat-list-item i:hover {
+    cursor: pointer;
 }

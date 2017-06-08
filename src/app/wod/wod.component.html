@@ -29,14 +29,14 @@
                 <hr/>
                 <md-card-subtitle>Media</md-card-subtitle>
                 <div class="file-list-zone" *ngIf="wod && wod.fileList && wod.fileList.length > 0">
-                    <ul>
-                        <li *ngFor="let file of wod.fileList">
-                            {{ file.name }}
+                    <md-list class="wod-media-contents-list">
+                        <md-list-item class="wod-media-contents-list-item" *ngFor="let file of wod.fileList; let i = index;">
                             <img [src]="getObjectUrl(file)" />
-                        </li>
-                    </ul>    
+                            <i class="material-icons" (click)="removeItemFromFileList(wod, file, i)">clear</i>
+                        </md-list-item>
+                    </md-list>    
                 </div>
-                <div hurtDroppable (drop)="onFilesDropped($event.dataTransfer.files, wod)" class="wod-media-upload-container" (click)="openMediaUploadDialog()">
+                <div hurtDroppable (drop)="onFilesDropped($event.dataTransfer.files, wod)" class="wod-media-upload-container">
                     <tr><i class="material-icons wod-media-upload-icon" style="margin: auto;">cloud_upload</i></tr>
                     <tr><div class="wod-media-upload-icon">Drop media here</div></tr>                    
                 </div>
